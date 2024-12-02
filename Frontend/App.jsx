@@ -3,13 +3,13 @@ import axios from 'axios';
 import JobList from './components/JobList';
 
 function App() {
-  const [jobs, setJobs] = useState([]);  // Jobs को स्टोर करेंगे
+  const [jobs, setJobs] = useState([]);
   const [keyword, setKeyword] = useState("developer");
 
-  const fetchJobs = async () => {  // Backend से डेटा fetch करेंगे
+  const fetchJobs = async () => {  
     try {
       const response = await axios.get(`/api/scrape?keyword=${keyword}`);
-      setJobs(response.data);  // API से मिले डेटा को स्टोर करेंगे
+      setJobs(response.data); 
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
